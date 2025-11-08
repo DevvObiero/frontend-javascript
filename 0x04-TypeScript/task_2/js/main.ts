@@ -13,7 +13,7 @@ interface TeacherInterface {
 }
 
 // Director class
-class Director implements DirectorInterface {
+export class Director implements DirectorInterface {
   workFromHome(): string {
     return "Working from home";
   }
@@ -26,7 +26,7 @@ class Director implements DirectorInterface {
 }
 
 // Teacher class
-class Teacher implements TeacherInterface {
+export class Teacher implements TeacherInterface {
   workFromHome(): string {
     return "Cannot work from home";
   }
@@ -39,7 +39,7 @@ class Teacher implements TeacherInterface {
 }
 
 // Function to create an employee
-function createEmployee(salary: number | string): Director | Teacher {
+export function createEmployee(salary: number | string): Director | Teacher {
   if (typeof salary === 'string') {
     salary = parseInt(salary);
   }
@@ -51,12 +51,12 @@ function createEmployee(salary: number | string): Director | Teacher {
 }
 
 // Task 6 - function to check if employee is a Director
-function isDirector(employee: Director | Teacher): employee is Director {
+export function isDirector(employee: Director | Teacher): employee is Director {
   return employee instanceof Director;
 }
 
 // Task 6 - function to execute work depending on employee type
-function executeWork(employee: Director | Teacher): string {
+export function executeWork(employee: Director | Teacher): string {
   if (isDirector(employee)) {
     return employee.workDirectorTasks();
   } else {
